@@ -78,6 +78,7 @@ def app():
     while app_running:
         choice = menu()
         if choice == '1':
+            # add a book
             title = input('Title: ')
             author = input('Author: ')
             date_error = True
@@ -98,11 +99,15 @@ def app():
             print('Book Added!')
             time.sleep(1.5)
         elif choice == '2':
+            # show books
             for book in session.query(Book):
                 print(f'{book.id} | {book.title} | {book.author} | {book.published_date} | {book.price}')
             input('\nPress enter to return to main menu.')
         elif choice == '3':
-            pass
+            # search books
+            id_options = []
+            for book in session.query(Book):
+                id_options.append(book.id)
         elif choice == '4':
             pass
         else:
