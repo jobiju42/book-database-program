@@ -3,7 +3,7 @@ import datetime
 import csv
 import time
 
-
+# formats the date into a usable datetime object
 def clean_date(date_str):
     months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     split_date = date_str.split(' ')
@@ -109,8 +109,10 @@ def app():
             for book in session.query(Book):
                 id_options.append(book.id)
         elif choice == '4':
+            # Book Analysis
             pass
         else:
+            # End program
             print("Goodbye")
             app_running = False
 
